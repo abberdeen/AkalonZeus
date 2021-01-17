@@ -3,46 +3,90 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AkalonZeus</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] — Акалон Погода Таджикистан</title>
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <link href="~/lib/falcon/lib/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet">
+    <link href="~/lib/falcon/lib/datatables-bs4/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="~/lib/falcon/lib/datatables.net-responsive-bs4/responsive.bootstrap4.css" rel="stylesheet">
+    <link href="~/lib/falcon/lib/leaflet/leaflet.css" rel="stylesheet">
+    <link href="~/lib/falcon/lib/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
+    <link href="~/lib/falcon/lib/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
+    <link href="~/lib/falcon/css/theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/wicons/css/weather-icons.css">
+    <link rel="stylesheet" href="~/lib/wicons/css/weather-icons-wind.css">
 </head>
-<body>
+<body style="background: #eceef2">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom mb-4">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AkalonZeus</a>
+                <a class="navbar-brand mr-1 mr-sm-3" asp-area="" asp-controller="Home" asp-action="Index"><span style="color:#B22222;">Akalon</span> Погода</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        <ul class="navbar-nav align-items-center d-none d-lg-block">
+                            <li class="nav-item">
+                                <div class="search-box">
+                                    <form class="position-relative" data-toggle="search" data-display="static">
+                                        <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search" />
+                                        <span class="fas fa-search search-box-icon"></span>
+                                    </form>
+                                    <button class="close" type="button" data-dismiss="search"><span class="fas fa-times"></span></button>
+                                    <div class="dropdown-menu">
+                                        <div class="scrollbar perfect-scrollbar py-3" style="height: 24rem;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> 
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main class="main" id="top">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - AkalonZeus - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container" data-layout="container">
+            <div class="content" data-layout="container">
+
+                @RenderBody()
+                <footer>
+                    <div class="row no-gutters justify-content-between fs--1 mt-4 mb-3">
+                        <div class="col-12 col-sm-auto text-center">
+                            <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none"> 2020 © <a href="https://themewagon.com/">Themewagon</a></p>
+                        </div>
+                        <div class="col-12 col-sm-auto text-center">
+                            <p class="mb-0 text-600">v2.8.0</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
-    </footer>
+    </main>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/falcon/js/popper.min.js"></script>
+    <script src="~/lib/falcon/js/bootstrap.min.js"></script>
+    <script src="~/lib/falcon/lib/%40fortawesome/all.min.js"></script>
+    <script src="~/lib/falcon/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="~/lib/falcon/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="~/lib/falcon/lib/is_js/is.min.js"></script>
+    <script src="~/lib/falcon/lib/lodash/lodash.min.js"></script>
+    <script src="~/lib/falcon/lib/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <script src="~/lib/falcon/lib/chart.js/Chart.min.js"></script>
+    <script src="~/lib/falcon/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/falcon/lib/datatables-bs4/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/falcon/lib/datatables.net-responsive/dataTables.responsive.js"></script>
+    <script src="~/lib/falcon/lib/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
+    <script src="~/lib/falcon/lib/leaflet/leaflet.js"></script>
+    <script src="~/lib/falcon/lib/leaflet.markercluster/leaflet.markercluster.js"></script>
+    <script src="~/lib/falcon/lib/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js"></script>
+    <script src="~/lib/falcon/js/theme.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

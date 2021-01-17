@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AkalonZeus.Models;
+using AkalonZeus.Models; 
+using OpenWeatherMapClient.Models.Base;
 
 namespace AkalonZeus.Controllers
 {
@@ -20,11 +21,16 @@ namespace AkalonZeus.Controllers
 
         public IActionResult Index()
         {
+            var apiKey = "68247420ccab2971c4ef714b3cdefe68";
+            var oneCallApi = new OpenWeatherMapClient.OneCallRequest(apiKey);
+            oneCallApi.GetCurrentAndForecastWeatherRawJson(new Coordinates(1, 2));
+
             return View();
         }
 
         public IActionResult Privacy()
         {
+     
             return View();
         }
 
