@@ -15,12 +15,12 @@ namespace AkalonZeus.Services
             _cities = new List<Place>() {
                 new Place(){
                     Id = 1,
-                    Coordinates = new Coordinates(69.627922, 40.285271),
+                    Coordinates = new Coordinates(40.283333,69.633333) ,
                     Name = "Khujand"
                 },
                  new Place(){
                     Id = 1,
-                    Coordinates = new Coordinates(68.779053, 38.535751),
+                    Coordinates = new Coordinates(38.535751, 68.779053),
                     Name = "Dushanbe"
                 }
             };

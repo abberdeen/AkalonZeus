@@ -19,7 +19,7 @@ namespace AkalonZeus.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Today()
         {
             var apiKey = "68247420ccab2971c4ef714b3cdefe68";
             var oneCallApi = new OpenWeatherMapClient.OneCallRequest(apiKey);

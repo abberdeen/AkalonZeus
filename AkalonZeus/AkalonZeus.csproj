@@ -2,7 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>46a1db59-25a2-4883-b339-f55c8e7f3222</UserSecretsId>
+	<AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>
+	<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+	<OutputType>Exe</OutputType> 
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Components\**" />
+    <Content Remove="Views\Components\**" />
+    <EmbeddedResource Remove="Views\Components\**" />
+    <None Remove="Views\Components\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
@@ -18,10 +33,6 @@
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Components\" />
   </ItemGroup>
 
 

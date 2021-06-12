@@ -50,7 +50,7 @@ namespace AkalonZeus
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Weather}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

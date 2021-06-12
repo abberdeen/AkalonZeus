@@ -21,18 +21,8 @@ namespace AkalonZeus.Controllers
 
         public IActionResult Index()
         {
-            var apiKey = "68247420ccab2971c4ef714b3cdefe68";
-            var oneCallApi = new OpenWeatherMapClient.OneCallRequest(apiKey);
-            oneCallApi.GetCurrentAndForecastWeatherRawJson(new Coordinates(1, 2));
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-     
-            return View();
-        }
+            return Redirect(Url.Action("Today", "Weather"));
+        } 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
